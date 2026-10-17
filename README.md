@@ -26,6 +26,13 @@ git clone https://github.com/zhijipro2026-design/MIHUB-Aibot.git
 
 图文教程：https://zhijipro.cn/guide/ ｜ 问题反馈：https://zhijipro.cn/feedback/ ｜ 隐私说明：https://zhijipro.cn/privacy/
 
+## 致谢
+
+本技能建立在两个开源项目之上，感谢它们的作者：
+
+- [MijiaFlow](https://github.com/xmx-emm/mijiaflow)（MIT）：本技能读取设备、写入极客版规则用的 MCP 服务器。它是独立的第三方项目，不包含在本仓库里。
+- [mijia-geek-skills](https://github.com/magic-zagan/mijia-geek-skills)（MIT）：本技能的规则、备份、控制台和入门讲解部分改自这个项目，许可见 `mijia-home/LICENSE-mijia-geek-skills.txt`。
+
 ## 已知问题（2.0.9）
 
 - 双控规则写入时可能报错，下个版本修复。
