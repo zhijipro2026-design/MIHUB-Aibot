@@ -1,0 +1,55 @@
+{
+  "id": "switch-mode",
+  "name": "开关改无线（一次性）",
+  "category": "设备调试",
+  "areas": [
+    "任意区域"
+  ],
+  "builder": "build_switch_mode_rule",
+  "needs": [
+    {
+      "role": "要改无线的键",
+      "type": "支持无线模式的智能开关",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "writes": "commissioning.switch_mode_writes() 生成；型号不在表里就按 spec 查到的属性写"
+  },
+  "logic": "规则加载时 → 依次写每个键的工作模式 = 无线；接智能灯的那一路再写通电后状态 = 上电。",
+  "notes": [
+    "一次性：客户同意后写入、启用一次、读回核对，然后停用或删掉",
+    "接普通灯的键、双控主开关接灯的那一路绝不放进来：改成无线后继电器常通，灯关不掉"
+  ],
+  "card": {
+    "scope": "none",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "智能开关",
+        "cats": [
+          "开关"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "开关支持无线模式（spec 里有工作模式属性）"
+      ],
+      "optional": []
+    },
+    "trigger": "规则加载时（启用一次）",
+    "effect": "把选中的键改成无线，接智能灯的那一路设成通电后上电",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "先查 KNOWN_SWITCH_MODES，没有再查 home.miot-spec.com/spec/<型号>",
+      "写入后读回属性，值不对就换另一个 mode 属性重试一次",
+      "核对完停用或删掉这条规则",
+      "按一下改过的键，执行日志里要有按键事件，灯不能被它直接断电"
+    ]
+  }
+}

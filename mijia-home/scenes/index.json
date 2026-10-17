@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 2,
+  "note": "每个模板的完整场景卡片（设备条件、触发、效果、调试技术）在 file 指向的文件的 card 字段里",
+  "templates": [
+    {
+      "id": "dual-control",
+      "name": "双控",
+      "category": "设备调试",
+      "areas": [
+        "卧室",
+        "过道",
+        "任意区域"
+      ],
+      "builder": "build_dual_control_rule",
+      "needs": [
+        "开关无线键",
+        "开关（有线）"
+      ],
+      "trigger": "按副开关的键",
+      "effect": "切换主开关那一路的灯",
+      "file": "dual-control.json"
+    },
+    {
+      "id": "switch-mode",
+      "name": "开关改无线（一次性）",
+      "category": "设备调试",
+      "areas": [
+        "任意区域"
+      ],
+      "builder": "build_switch_mode_rule",
+      "needs": [
+        "支持无线模式的智能开关"
+      ],
+      "trigger": "规则加载时（启用一次）",
+      "effect": "把选中的键改成无线，接智能灯的那一路设成通电后上电",
+      "file": "switch-mode.json"
+    },
+    {
+      "id": "home-mode-switch",
+      "name": "家庭模式切换",
+      "category": "家庭状态",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_mode_switch_rule",
+      "needs": [
+        "无线按键/场景面板/开关无线键"
+      ],
+      "trigger": "按某个键",
+      "effect": "家庭模式写成对应模式（在家/离家/全屋睡眠/起床/访客）",
+      "file": "home-mode-switch.json"
+    },
+    {
+      "id": "home-cascade",
+      "name": "全屋带区域（离家、全屋睡眠）",
+      "category": "家庭状态",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_home_cascade_rule",
+      "needs": [
+        "全屋家庭模式变量"
+      ],
+      "trigger": "家庭模式变成离家或全屋睡眠",
+      "effect": "各区域模式一起改，并关掉对应的灯",
+      "file": "home-cascade.json"
+    },
+    {
+      "id": "area-mode",
+      "name": "区域模式（明亮/休闲/温馨/放松/观影/就餐/睡眠/离开）",
+      "category": "区域模式",
+      "areas": [
+        "客厅",
+        "餐厅",
+        "卧室",
+        "任意区域"
+      ],
+      "builder": "build_area_mode_rule",
+      "needs": [
+        "无线按键/开关无线键/场景面板",
+        "调光调色灯 / 开关接的普通灯（可混装）"
+      ],
+      "trigger": "按这个区域的模式键（如 客厅温馨）",
+      "effect": "先写区域模式变量，再按灯的角色开关",
+      "file": "area-mode.json"
+    },
+    {
+      "id": "area-sync",
+      "name": "区域灯全关同步",
+      "category": "区域模式",
+      "areas": [
+        "客厅",
+        "餐厅",
+        "卧室"
+      ],
+      "builder": "build_area_off_sync_rule",
+      "needs": [
+        "灯/开关"
+      ],
+      "trigger": "区域里任一盏灯被关掉，且这时全部灯都关着",
+      "effect": "区域模式变量改成 离开（已是睡眠/离开就不改）",
+      "file": "area-sync.json"
+    },
+    {
+      "id": "mode-scene",
+      "name": "模式场景",
+      "category": "场景",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_mode_scene_rule",
+      "needs": [
+        "灯/窗帘/空调/开关等"
+      ],
+      "trigger": "家庭模式变成某个值",
+      "effect": "依次设好一组设备的状态",
+      "file": "mode-scene.json"
+    },
+    {
+      "id": "night-wake",
+      "name": "起夜",
+      "category": "家庭状态",
+      "areas": [
+        "卧室",
+        "卫生间"
+      ],
+      "builder": "build_night_wake_rule",
+      "needs": [
+        "无线按键/开关无线键",
+        "灯（有开关属性）",
+        "人在/人体传感器（可选）"
+      ],
+      "trigger": "卧室的区域模式=睡眠 时，按床头任意键（点了睡眠或全屋睡眠以后才生效）",
+      "effect": "灯关着→开到「明亮」；灯开着→关灯",
+      "file": "night-wake.json"
+    },
+    {
+      "id": "sunset-schedule",
+      "name": "日落定时开关",
+      "category": "区域自动化",
+      "areas": [
+        "庭院",
+        "阳台",
+        "玄关",
+        "走廊",
+        "客厅"
+      ],
+      "builder": "build_sunset_schedule_rule",
+      "needs": [
+        "灯/开关/风扇"
+      ],
+      "trigger": "日落前后（默认提前 30 分钟），所选星期",
+      "effect": "开灯，到关灯时间关",
+      "file": "sunset-schedule.json"
+    },
+    {
+      "id": "scene-with-mode",
+      "name": "场景（发变量 + 批量控制）",
+      "category": "场景",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_scene_rule",
+      "needs": [
+        "无线按键/场景面板",
+        "灯/窗帘/空调等（可选）"
+      ],
+      "trigger": "按场景键",
+      "effect": "先写家庭模式，再批量控制设备",
+      "file": "scene-with-mode.json"
+    },
+    {
+      "id": "light-follow",
+      "name": "灯光跟随",
+      "category": "家庭状态",
+      "areas": [
+        "任意区域"
+      ],
+      "builder": "build_light_follow_rule",
+      "needs": [
+        "可调亮度/色温的智能灯"
+      ],
+      "trigger": "智能灯被打开",
+      "effect": "之后随手打开的调光灯，按这个区域当前模式的亮度色温亮（例：客厅温馨时 40%、3000K）；睡眠时不改，交给起夜",
+      "file": "light-follow.json"
+    },
+    {
+      "id": "presence-light",
+      "name": "人来灯亮、人走灯灭",
+      "category": "区域自动化",
+      "areas": [
+        "走廊",
+        "卫生间",
+        "衣帽间",
+        "楼梯",
+        "储物间"
+      ],
+      "builder": "build_presence_light_rule",
+      "needs": [
+        "人在传感器/人体传感器",
+        "灯/开关",
+        "带照度的传感器（可选）"
+      ],
+      "trigger": "有人且不在离家模式（可加：照度够暗）",
+      "effect": "灯关着就开；亮度色温交给灯光跟随",
+      "file": "presence-light.json"
+    },
+    {
+      "id": "arrive-home",
+      "name": "回家",
+      "category": "区域自动化",
+      "areas": [
+        "玄关"
+      ],
+      "builder": "build_arrive_home_rule",
+      "needs": [
+        "智能门锁开门事件 / 门窗传感器",
+        "灯/空调/窗帘等"
+      ],
+      "trigger": "开门，且家庭模式=离家",
+      "effect": "家庭模式改成「在家」→ 开玄关灯；天黑时客厅灯按「温馨」",
+      "file": "arrive-home.json"
+    },
+    {
+      "id": "sunrise-curtain",
+      "name": "晨起开窗帘",
+      "category": "区域自动化",
+      "areas": [
+        "卧室",
+        "客厅"
+      ],
+      "builder": "build_sunrise_curtain_rule",
+      "needs": [
+        "窗帘电机"
+      ],
+      "trigger": "日出（可偏移），默认仅法定工作日，离家不开",
+      "effect": "开窗帘",
+      "file": "sunrise-curtain.json"
+    },
+    {
+      "id": "speaker-reminder",
+      "name": "离家/睡觉前小爱提醒（可选，先问客户）",
+      "category": "家庭状态",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_speaker_reminder_rule",
+      "needs": [
+        "音箱",
+        "门窗传感器 / 空调 / 灯等"
+      ],
+      "trigger": "家庭模式变成离家或全屋睡眠",
+      "effect": "小爱提醒窗没关、空调还开着这类事；都正常就不说话",
+      "file": "speaker-reminder.json"
+    },
+    {
+      "id": "mode-cycle",
+      "name": "一个键轮流切模式",
+      "category": "区域模式",
+      "areas": [
+        "客厅",
+        "卧室",
+        "任意区域"
+      ],
+      "builder": "build_mode_cycle_rule",
+      "needs": [
+        "无线键",
+        "无线键",
+        "灯/开关"
+      ],
+      "trigger": "按轮换键",
+      "effect": "每按一次换一个模式：明亮 → 休闲 → 温馨 → 放松 → 休憩 → 再回到明亮",
+      "file": "mode-cycle.json"
+    },
+    {
+      "id": "on-off-keys",
+      "name": "开关分开的两个键",
+      "category": "按键",
+      "areas": [
+        "床头",
+        "门口",
+        "任意区域"
+      ],
+      "builder": "build_on_off_keys_rule",
+      "needs": [
+        "无线键",
+        "无线键",
+        "灯/窗帘等"
+      ],
+      "trigger": "按开键或关键",
+      "effect": "开键只管开、关键只管关，关的时候可以顺手关窗帘",
+      "file": "on-off-keys.json"
+    },
+    {
+      "id": "zone-remote",
+      "name": "遥控器分区控制",
+      "category": "区域模式",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_zone_remote_rule",
+      "needs": [
+        "无线按键",
+        "灯/开关"
+      ],
+      "trigger": "按遥控器上某个区域的开键或关键",
+      "effect": "一个遥控器管几个区域：客厅开、客厅关、餐厅开、餐厅关……",
+      "file": "zone-remote.json"
+    },
+    {
+      "id": "brightness-step",
+      "name": "上下键调亮调暗",
+      "category": "区域模式",
+      "areas": [
+        "客厅",
+        "卧室",
+        "任意区域"
+      ],
+      "builder": "build_brightness_step_rule",
+      "needs": [
+        "无线键",
+        "无线键",
+        "灯/开关"
+      ],
+      "trigger": "按上键或下键",
+      "effect": "上键一档一档变亮，下键一档一档变暗，到头就停",
+      "file": "brightness-step.json"
+    },
+    {
+      "id": "motion-pause",
+      "name": "临时不让感应关灯（全屋）",
+      "category": "家庭状态",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_motion_pause_rule",
+      "needs": [
+        "无线键",
+        "无线键"
+      ],
+      "trigger": "按暂停键",
+      "effect": "想让灯一直亮时按一下，人走了灯也不灭；关灯、离家或睡觉后自动恢复",
+      "file": "motion-pause.json"
+    },
+    {
+      "id": "time-schedule",
+      "name": "定时开关",
+      "category": "定时",
+      "areas": [
+        "任意区域"
+      ],
+      "builder": "build_time_schedule_rule",
+      "needs": [
+        "智能插座/开关/灯"
+      ],
+      "trigger": "每天到点",
+      "effect": "每天几点开、几点关，可以只选工作日或周末",
+      "file": "time-schedule.json"
+    },
+    {
+      "id": "max-on",
+      "name": "开着太久自动关",
+      "category": "保底",
+      "areas": [
+        "阳台",
+        "储物间",
+        "庭院",
+        "车库"
+      ],
+      "builder": "build_max_on_rule",
+      "needs": [
+        "灯/插座/开关"
+      ],
+      "trigger": "设备打开后开了太久",
+      "effect": "忘关的灯或插座，开了 2 小时自动关",
+      "file": "max-on.json"
+    },
+    {
+      "id": "low-battery",
+      "name": "传感器低电量提醒",
+      "category": "保底",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_low_battery_rule",
+      "needs": [
+        "门窗/人体/按键/温湿度传感器",
+        "音箱"
+      ],
+      "trigger": "传感器电量低于 20%",
+      "effect": "哪个传感器快没电了，提前告诉你换电池，免得自动化突然不灵",
+      "file": "low-battery.json"
+    },
+    {
+      "id": "device-notify",
+      "name": "设备提醒和报警（洗衣机洗好、漏水、燃气、烟雾）",
+      "category": "提醒",
+      "areas": [
+        "全屋"
+      ],
+      "builder": "build_device_notify_rule",
+      "needs": [
+        "洗衣机/烘干机/洗碗机/水浸/燃气/烟雾传感器",
+        "音箱"
+      ],
+      "trigger": "洗衣机洗好、检测到漏水/燃气/烟雾",
+      "effect": "小爱播报提醒或报警",
+      "file": "device-notify.json"
+    }
+  ]
+}

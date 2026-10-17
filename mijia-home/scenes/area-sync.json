@@ -1,0 +1,57 @@
+{
+  "id": "area-sync",
+  "name": "区域灯全关同步",
+  "category": "区域模式",
+  "areas": [
+    "客厅",
+    "餐厅",
+    "卧室"
+  ],
+  "builder": "build_area_off_sync_rule",
+  "needs": [
+    {
+      "role": "这个区域的灯",
+      "type": "灯/开关",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "area": "区域名",
+    "lights": "这个区域的全部灯",
+    "off_value": "默认 离开"
+  },
+  "logic": "这个区域的灯被人全关了 → 区域模式变量改成 离开；睡眠时不改。",
+  "notes": [
+    "保证模式和灯的实际状态一致，之后新开的灯不会按旧模式亮"
+  ],
+  "card": {
+    "scope": "none",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "灯",
+        "cats": [
+          "灯",
+          "开关"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "每个设了区域模式的区域都做一条"
+      ],
+      "optional": []
+    },
+    "trigger": "区域里任一盏灯被关掉，且这时全部灯都关着",
+    "effect": "区域模式变量改成 离开（已是睡眠/离开就不改）",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "灯多时只放这个区域的主要灯",
+      "睡眠时关灯是正常的，不能改成离开"
+    ]
+  }
+}

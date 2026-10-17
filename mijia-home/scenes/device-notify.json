@@ -1,0 +1,60 @@
+{
+  "id": "device-notify",
+  "name": "设备提醒和报警（洗衣机洗好、漏水、燃气、烟雾）",
+  "category": "提醒",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_device_notify_rule",
+  "needs": [
+    {
+      "role": "要盯着的设备",
+      "type": "洗衣机/烘干机/洗碗机/水浸/燃气/烟雾传感器",
+      "count": "1"
+    },
+    {
+      "role": "小爱音箱",
+      "type": "音箱",
+      "count": "1"
+    }
+  ],
+  "params": {
+    "trigger": "设备的状态属性或事件（按 spec）",
+    "text": "小爱说的话",
+    "volume": "报警类 80 以上"
+  },
+  "logic": "设备状态变化或事件 → 小爱播报。只播报，不控制设备。",
+  "notes": [
+    "关水阀、关燃气阀要客户明确要求、说清误报后果才另做"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "小爱音箱",
+        "cats": [
+          "音箱"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "要盯着的设备 1",
+        "小爱音箱 1"
+      ],
+      "optional": []
+    },
+    "trigger": "洗衣机洗好、检测到漏水/燃气/烟雾",
+    "effect": "小爱播报提醒或报警",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "不为测试去制造漏水或燃气，可先用一条固定文字测试小爱能不能出声",
+      "触发属性和取值按 spec 核对"
+    ]
+  }
+}

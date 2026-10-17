@@ -1,0 +1,58 @@
+{
+  "id": "sunrise-curtain",
+  "name": "晨起开窗帘",
+  "category": "区域自动化",
+  "areas": [
+    "卧室",
+    "客厅"
+  ],
+  "builder": "build_sunrise_curtain_rule",
+  "needs": [
+    {
+      "role": "窗帘",
+      "type": "窗帘电机",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "offset_min": "日出偏移分钟",
+    "workday_only": "仅法定工作日，默认是",
+    "skip_modes": "默认 离家"
+  },
+  "logic": "日出 → 法定工作日 → 不在跳过模式 → 开窗帘。",
+  "notes": [
+    "想等起床再开，就把开窗帘放进起床模式场景，不用这个模板"
+  ],
+  "card": {
+    "scope": "room",
+    "roomWords": [
+      "卧",
+      "客厅"
+    ],
+    "match": [
+      {
+        "role": "窗帘",
+        "cats": [
+          "窗帘"
+        ],
+        "where": "本房间",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "本房间：窗帘电机 1+"
+      ],
+      "optional": []
+    },
+    "trigger": "日出（可偏移），默认仅法定工作日，离家不开",
+    "effect": "开窗帘",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "窗帘开合度 piid 按 spec 核对",
+      "想等起床再开，就放进起床模式场景"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "low-battery",
+  "name": "传感器低电量提醒",
+  "category": "保底",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_low_battery_rule",
+  "needs": [
+    {
+      "role": "电池设备",
+      "type": "门窗/人体/按键/温湿度传感器",
+      "count": "1+"
+    },
+    {
+      "role": "小爱音箱（可选）",
+      "type": "音箱",
+      "count": "0-1"
+    }
+  ],
+  "params": {
+    "sensors": "每个电池设备的电量属性（按 spec 核对）",
+    "threshold": "低于多少提醒，默认 20",
+    "speaker": "可选，有就播报"
+  },
+  "logic": "电量低于阈值 → 记下设备名 →（有小爱）播报。",
+  "notes": [
+    "电量属性编号按 spec 核对",
+    "没有音箱时只记变量，AI 下次读设备时告诉客户"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "电池类传感器",
+        "cats": [
+          "门窗传感器",
+          "人体传感器",
+          "人在传感器",
+          "无线按键",
+          "温湿度传感器"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "电池类传感器"
+      ],
+      "optional": [
+        "小爱音箱"
+      ]
+    },
+    "trigger": "传感器电量低于 20%",
+    "effect": "哪个传感器快没电了，提前告诉你换电池，免得自动化突然不灵",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "电量属性读一次，确认是 0–100 的数"
+    ]
+  }
+}

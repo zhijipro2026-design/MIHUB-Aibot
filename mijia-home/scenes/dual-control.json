@@ -1,0 +1,61 @@
+{
+  "id": "dual-control",
+  "name": "双控",
+  "category": "设备调试",
+  "areas": [
+    "卧室",
+    "过道",
+    "任意区域"
+  ],
+  "builder": "build_dual_control_rule",
+  "needs": [
+    {
+      "role": "副开关（无线键）",
+      "type": "开关无线键",
+      "count": "1+"
+    },
+    {
+      "role": "主开关接灯的那一路",
+      "type": "开关（有线）",
+      "count": "1"
+    }
+  ],
+  "params": {
+    "secondary_keys": "副开关的无线键",
+    "main_light": "主开关接着普通灯的那一路"
+  },
+  "logic": "按副开关 → 主开关那一路：开着就关，关着就开。",
+  "notes": [
+    "主开关接普通灯的那一路必须保持有线，改成无线继电器常通，灯关不掉"
+  ],
+  "card": {
+    "scope": "none",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "开关",
+        "cats": [
+          "开关"
+        ],
+        "where": "全屋",
+        "count": 2
+      }
+    ],
+    "conditions": {
+      "required": [
+        "两个以上开关上有同名的键"
+      ],
+      "optional": []
+    },
+    "trigger": "按副开关的键",
+    "effect": "切换主开关那一路的灯",
+    "effectTunable": null,
+    "effectPlain": "开/关",
+    "autoOff": null,
+    "debug": [
+      "请客户单独关掉每一路，看哪一路灯会灭，那一路就是主开关",
+      "主开关那一路保持有线",
+      "副开关改成无线后，按一下看执行日志里有没有按键事件"
+    ]
+  }
+}

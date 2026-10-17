@@ -1,0 +1,55 @@
+{
+  "id": "light-follow",
+  "name": "灯光跟随",
+  "category": "家庭状态",
+  "areas": [
+    "任意区域"
+  ],
+  "builder": "build_light_follow_rule",
+  "needs": [
+    {
+      "role": "智能灯",
+      "type": "可调亮度/色温的智能灯",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "area": "区域名：读「<区域>亮度」「<区域>色温」两个变量（推荐）",
+    "table": "不给 area 时用：{模式: {brightness, ct}}，给过道等跟随全屋的区域"
+  },
+  "logic": "调光灯被打开 → 直接写入这个区域亮度、色温两个变量的值（区域模式规则切模式时会改这两个变量）；睡眠时不改。",
+  "notes": [
+    "只管之后新开的灯",
+    "以后要灯跟着太阳变，只要按时间改这两个变量"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "调光调色灯",
+        "cats": [
+          "灯"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "全屋：可调亮度/色温的智能灯 1+"
+      ],
+      "optional": []
+    },
+    "trigger": "智能灯被打开",
+    "effect": "之后随手打开的调光灯，按这个区域当前模式的亮度色温亮（例：客厅温馨时 40%、3000K）；睡眠时不改，交给起夜",
+    "effectTunable": "同上",
+    "effectPlain": "普通灯不参与（只能开关）",
+    "autoOff": null,
+    "debug": [
+      "亮度、色温 piid 按 spec 核对",
+      "先建好「<区域>亮度」「<区域>色温」变量（area_variables）",
+      "切一次模式，再手动开灯，看是不是按模式的亮度色温亮"
+    ]
+  }
+}

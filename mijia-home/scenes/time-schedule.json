@@ -1,0 +1,55 @@
+{
+  "id": "time-schedule",
+  "name": "定时开关",
+  "category": "定时",
+  "areas": [
+    "任意区域"
+  ],
+  "builder": "build_time_schedule_rule",
+  "needs": [
+    {
+      "role": "要定时的设备",
+      "type": "智能插座/开关/灯",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "on_hms": "开的时间",
+    "off_hms": "关的时间",
+    "days": "星期几，默认每天"
+  },
+  "logic": "每天固定时间开、固定时间关，可选星期几。",
+  "notes": [
+    "鱼缸灯、门头灯、灯串这类"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "插座/开关/灯",
+        "cats": [
+          "插座",
+          "开关",
+          "灯"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "智能插座、开关或灯"
+      ],
+      "optional": []
+    },
+    "trigger": "每天到点",
+    "effect": "每天几点开、几点关，可以只选工作日或周末",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "先把时间设成 2 分钟后，看能不能按时开"
+    ]
+  }
+}

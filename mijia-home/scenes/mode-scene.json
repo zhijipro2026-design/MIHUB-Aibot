@@ -1,0 +1,57 @@
+{
+  "id": "mode-scene",
+  "name": "模式场景",
+  "category": "场景",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_mode_scene_rule",
+  "needs": [
+    {
+      "role": "被控设备",
+      "type": "灯/窗帘/空调/开关等",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "mode": "触发该场景的家庭模式",
+    "writes": "该模式下每台设备的目标状态"
+  },
+  "logic": "家庭模式变为某值 → 依次写入一组设备状态。preload 关闭，网关重启不会重放场景。",
+  "notes": [
+    "一个模式一条规则，便于单独增删",
+    "需要瞬时调用（不改变模式）的场景，用中枢网关虚拟事件：fire_virtual_event / trigger_virtual_event"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "被控设备",
+        "cats": [
+          "灯",
+          "开关",
+          "窗帘",
+          "空调"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "全屋：灯/窗帘/空调/开关 1+"
+      ],
+      "optional": []
+    },
+    "trigger": "家庭模式变成某个值",
+    "effect": "依次设好一组设备的状态",
+    "effectTunable": "按该模式对应的氛围",
+    "effectPlain": "按分层开/关",
+    "autoOff": null,
+    "debug": [
+      "preload 关闭，网关重启不会重放场景",
+      "一个模式一条规则，便于增删"
+    ]
+  }
+}

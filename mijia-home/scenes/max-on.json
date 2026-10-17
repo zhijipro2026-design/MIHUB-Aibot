@@ -1,0 +1,65 @@
+{
+  "id": "max-on",
+  "name": "开着太久自动关",
+  "category": "保底",
+  "areas": [
+    "阳台",
+    "储物间",
+    "庭院",
+    "车库"
+  ],
+  "builder": "build_max_on_rule",
+  "needs": [
+    {
+      "role": "容易忘关的设备",
+      "type": "灯/插座/开关",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "devices": "灯或插座",
+    "minutes": "多久后关，默认 120"
+  },
+  "logic": "设备打开 → 过了设定时间还开着 → 关。重新打开会重新计时。",
+  "notes": [
+    "卧室和起夜不用：用户定的卧室不做定时关"
+  ],
+  "card": {
+    "scope": "room",
+    "roomWords": [
+      "阳台",
+      "储物",
+      "庭院",
+      "花园",
+      "车库",
+      "地下室",
+      "杂物"
+    ],
+    "match": [
+      {
+        "role": "灯或插座",
+        "cats": [
+          "灯",
+          "开关",
+          "插座"
+        ],
+        "where": "本房间",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "阳台、储物间、庭院、车库这类房间有灯或插座"
+      ],
+      "optional": []
+    },
+    "trigger": "设备打开后开了太久",
+    "effect": "忘关的灯或插座，开了 2 小时自动关",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": "开了设定时间后自动关",
+    "debug": [
+      "先把时间设成 2 分钟测试，测完改回来"
+    ]
+  }
+}

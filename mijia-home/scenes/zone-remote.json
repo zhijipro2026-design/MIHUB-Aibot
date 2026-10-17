@@ -1,0 +1,58 @@
+{
+  "id": "zone-remote",
+  "name": "遥控器分区控制",
+  "category": "区域模式",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_zone_remote_rule",
+  "needs": [
+    {
+      "role": "多键遥控器或场景面板",
+      "type": "无线按键",
+      "count": "1"
+    },
+    {
+      "role": "各区域的灯",
+      "type": "灯/开关",
+      "count": "每区域 1+"
+    }
+  ],
+  "params": {
+    "zones": "[{area, on_key, off_key, mode, lights}]，mode 默认温馨"
+  },
+  "logic": "每组键管一个区域：开键 = 这个区域的常用模式，关键 = 离开。",
+  "notes": [
+    "键数要 ≥ 区域数 × 2"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "多键遥控器或场景面板",
+        "cats": [
+          "无线按键"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "多键无线遥控器或场景面板"
+      ],
+      "optional": [
+        "调光调色灯"
+      ]
+    },
+    "trigger": "按遥控器上某个区域的开键或关键",
+    "effect": "一个遥控器管几个区域：客厅开、客厅关、餐厅开、餐厅关……",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "每个键按一次，核对管的是对的区域"
+    ]
+  }
+}

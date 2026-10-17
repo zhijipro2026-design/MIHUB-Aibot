@@ -1,0 +1,56 @@
+{
+  "id": "home-cascade",
+  "name": "全屋带区域（离家、全屋睡眠）",
+  "category": "家庭状态",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_home_cascade_rule",
+  "needs": [
+    {
+      "role": "家庭模式",
+      "type": "全屋家庭模式变量",
+      "count": "1"
+    }
+  ],
+  "params": {
+    "home_mode": "在家/离家/全屋睡眠/起床/访客",
+    "area_values": "{区域: 该区域要写的模式}",
+    "writes": "关灯、关窗帘等"
+  },
+  "logic": "家庭模式变成某值 → 各区域变量一起改 → 执行一组设备动作。",
+  "notes": [
+    "离家：所有区域 离开；全屋睡眠：卧室 睡眠、其余 离开"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "切模式的按键",
+        "cats": [
+          "无线按键",
+          "开关"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "全屋家庭模式变量",
+        "各区域模式变量"
+      ],
+      "optional": []
+    },
+    "trigger": "家庭模式变成离家或全屋睡眠",
+    "effect": "各区域模式一起改，并关掉对应的灯",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "preload 关闭，网关重启不重放",
+      "离家、睡眠前可先查门窗"
+    ]
+  }
+}

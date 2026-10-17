@@ -1,0 +1,4 @@
+interface:
+  display_name: "米家全屋智能调试"
+  short_description: "米家全屋智能：读懂设备、做家庭模式、场景和自动化"
+  default_prompt: "用 mijia-home 技能帮我调试米家全屋智能，按技能里的第一次调试步骤，从读取我家的设备开始。"

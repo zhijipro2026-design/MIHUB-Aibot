@@ -1,0 +1,72 @@
+{
+  "id": "sunset-schedule",
+  "name": "日落定时开关",
+  "category": "区域自动化",
+  "areas": [
+    "庭院",
+    "阳台",
+    "玄关",
+    "走廊",
+    "客厅"
+  ],
+  "builder": "build_sunset_schedule_rule",
+  "source": "HA 蓝图 ufans123/daily_sun_based_multi_device_scheduler_with_scenes",
+  "needs": [
+    {
+      "role": "被控灯/开关",
+      "type": "灯/开关/风扇",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "latitude/longitude": "控制台 定时卡→日落→获取经纬度",
+    "offset_min": "默认 -30",
+    "off_hms": "关灯时间，如 23:00:00",
+    "days": "星期，默认每天",
+    "set_mode": "可选：日落时同时切换家庭模式"
+  },
+  "logic": "日落偏移后，若今天在所选星期且未过关灯时间 → 开灯；每天关灯时间逐灯检查开着才关。",
+  "notes": [
+    "修正原蓝图：日落晚于关灯时间时不再开灯",
+    "星期过滤由 timeRange 卡承载，首次使用需在执行日志里核对一次"
+  ],
+  "card": {
+    "scope": "room",
+    "roomWords": [
+      "庭院",
+      "花园",
+      "阳台",
+      "露台",
+      "玄关",
+      "走廊",
+      "客厅"
+    ],
+    "match": [
+      {
+        "role": "灯/开关",
+        "cats": [
+          "灯",
+          "开关"
+        ],
+        "where": "本房间",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "本区域：灯/开关 1+"
+      ],
+      "optional": []
+    },
+    "trigger": "日落前后（默认提前 30 分钟），所选星期",
+    "effect": "开灯，到关灯时间关",
+    "effectTunable": "按灯光跟随",
+    "effectPlain": "开/关",
+    "autoOff": "每天固定时间逐灯检查开着才关",
+    "debug": [
+      "经纬度在控制台 定时卡→日落→获取经纬度",
+      "星期过滤由 timeRange 卡承载，首次用要在执行日志里核对",
+      "日落晚于关灯时间时不开"
+    ]
+  }
+}

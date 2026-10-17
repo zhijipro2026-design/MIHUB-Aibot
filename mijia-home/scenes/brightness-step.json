@@ -1,0 +1,79 @@
+{
+  "id": "brightness-step",
+  "name": "上下键调亮调暗",
+  "category": "区域模式",
+  "areas": [
+    "客厅",
+    "卧室",
+    "任意区域"
+  ],
+  "builder": "build_brightness_step_rule",
+  "needs": [
+    {
+      "role": "上键",
+      "type": "无线键",
+      "count": "1"
+    },
+    {
+      "role": "下键",
+      "type": "无线键",
+      "count": "1"
+    },
+    {
+      "role": "这个区域的灯",
+      "type": "灯/开关",
+      "count": "2+"
+    }
+  ],
+  "params": {
+    "up_keys": "上键",
+    "down_keys": "下键",
+    "lights": "这个区域的灯"
+  },
+  "logic": "上键切到更亮的模式，下键切到更暗的模式（休憩 → 放松 → 温馨 → 休闲 → 明亮）。",
+  "notes": [
+    "稳妥版：按模式一档一档切，一定能做",
+    "精细版（每按一次亮度 ±20）要先验证数字变量能不能加减"
+  ],
+  "card": {
+    "scope": "room",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "空着的无线键",
+        "cats": [
+          "无线按键",
+          "开关"
+        ],
+        "where": "本房间",
+        "count": 2
+      },
+      {
+        "role": "灯",
+        "cats": [
+          "灯",
+          "开关"
+        ],
+        "where": "本房间",
+        "count": 2
+      }
+    ],
+    "conditions": {
+      "required": [
+        "两个空着的无线键",
+        "这个区域 2 盏以上的灯"
+      ],
+      "optional": [
+        "调光调色灯（效果更细）"
+      ]
+    },
+    "trigger": "按上键或下键",
+    "effect": "上键一档一档变亮，下键一档一档变暗，到头就停",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "从温馨开始，上键按到明亮、下键按到休憩，看每档都不一样"
+    ]
+  }
+}

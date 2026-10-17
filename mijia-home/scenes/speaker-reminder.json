@@ -1,0 +1,66 @@
+{
+  "id": "speaker-reminder",
+  "name": "离家/睡觉前小爱提醒（可选，先问客户）",
+  "category": "家庭状态",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_speaker_reminder_rule",
+  "needs": [
+    {
+      "role": "小爱音箱",
+      "type": "音箱",
+      "count": "1"
+    },
+    {
+      "role": "要提醒的事",
+      "type": "门窗传感器 / 空调 / 灯等",
+      "count": "0+"
+    }
+  ],
+  "params": {
+    "home_mode": "离家 或 全屋睡眠",
+    "checks": "逐项检查的设备状态和要说的话",
+    "text": "固定的一句话",
+    "prompt": "让小爱自己组织语言",
+    "volume": "播报前的音量"
+  },
+  "logic": "家庭模式变成离家/全屋睡眠 → 逐项查 → 成立的那项让小爱说一句；一项都不成立就不说话。",
+  "notes": [
+    "只问客户一次要不要，客户说要才做，不主动加",
+    "音箱动作编号按 spec 核对；xiaomi-lx06 播报文字 siid5 aiid1，按提示词说话 siid5 aiid5"
+  ],
+  "card": {
+    "scope": "home",
+    "askFirst": true,
+    "roomWords": [],
+    "match": [
+      {
+        "role": "小爱音箱",
+        "cats": [
+          "音箱"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "全屋：小爱音箱 1"
+      ],
+      "optional": [
+        "门窗传感器、空调"
+      ]
+    },
+    "trigger": "家庭模式变成离家或全屋睡眠",
+    "effect": "小爱提醒窗没关、空调还开着这类事；都正常就不说话",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "先问客户要不要",
+      "睡眠时音量调小",
+      "先用一条固定文字测试能不能出声，再加检查项"
+    ]
+  }
+}

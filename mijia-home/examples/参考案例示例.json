@@ -1,0 +1,3018 @@
+{
+ "version": 2,
+ "rules": [
+  {
+   "id": "1700000000301",
+   "cfg": {
+    "id": "1700000000301",
+    "userData": {
+     "name": "双控-主卧吸顶灯",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297598,
+     "version": 0,
+     "tags": [
+      "双控"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "dc000301001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 242,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "dc000301003.input0"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW2",
+      "siid": 5,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "dc000301002",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 502,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "dc000301003.input1"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW3",
+      "siid": 5,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "dc000301003",
+     "type": "signalOr",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 242,
+       "width": 180,
+       "height": 190
+      },
+      "name": "signalOr",
+      "version": 0
+     },
+     "inputs": {
+      "input0": null,
+      "input1": null
+     },
+     "outputs": {
+      "output": [
+       "dc000301004.input"
+      ]
+     },
+     "props": {}
+    },
+    {
+     "id": "dc000301004",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 1000,
+       "y": 242,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "dc000301005.trigger"
+      ],
+      "output2": [
+       "dc000301006.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": true
+     }
+    },
+    {
+     "id": "dc000301005",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 1840,
+       "y": 242,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "dc000301006",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 1840,
+       "y": 462,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "dc000301007",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【双控-主卧吸顶灯】\n触发：按副开关的键\n效果：按副开关：主卧吸顶灯开着就关，关着就开（主开关那一路保持有线）\n设备：主卧床头左开关·第1键（无线）、主卧床头右开关·第1键（无线）、主卧吸顶灯\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 182
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000302",
+   "cfg": {
+    "id": "1700000000302",
+    "userData": {
+     "name": "客厅温馨",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297706,
+     "version": 0,
+     "tags": [
+      "区域模式",
+      "客厅"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "am000302001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 262,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "am000302002.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_K1",
+      "siid": 4,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "am000302002",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 262,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000302003.input"
+      ]
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "温馨"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000302003",
+     "type": "varSetNumber",
+     "cfg": {
+      "pos": {
+       "x": 1560,
+       "y": 262,
+       "width": 760,
+       "height": 120
+      },
+      "name": "varSetNumber",
+      "version": 0
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000302004.input"
+      ]
+     },
+     "props": {
+      "id": "Vbric3f6b19",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "40"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000302004",
+     "type": "varSetNumber",
+     "cfg": {
+      "pos": {
+       "x": 2400,
+       "y": 262,
+       "width": 760,
+       "height": 120
+      },
+      "name": "varSetNumber",
+      "version": 0
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000302005.trigger"
+      ]
+     },
+     "props": {
+      "id": "Vcctc3f6b19",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "3000"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000302005",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3240,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302006.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000302006",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 4020,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302007.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 3,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000302007",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 4800,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302008.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW6",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000302008",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 5580,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302009.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000302009",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 6360,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302010.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 2,
+      "value": 40
+     }
+    },
+    {
+     "id": "am000302010",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 7140,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302011.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 3,
+      "value": 3000
+     }
+    },
+    {
+     "id": "am000302011",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 7920,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000302012.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "am000302012",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 8700,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 3,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "am000302013",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【客厅温馨】\n触发：按 过道面板·客厅温馨\n效果：「客厅模式」写成 温馨；调光灯 40%/3000K；开 客厅磁吸轨道灯、客厅电视灯带、客厅沙发灯带、客厅落地灯；关 客厅泛光灯、客厅筒灯\n设备：过道面板·客厅温馨、客厅泛光灯、客厅筒灯、客厅磁吸轨道灯、客厅电视灯带、客厅沙发灯带、客厅落地灯\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 202
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000303",
+   "cfg": {
+    "id": "1700000000303",
+    "userData": {
+     "name": "餐厅就餐",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297707,
+     "version": 0,
+     "tags": [
+      "区域模式",
+      "餐厅"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "am000303001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 222,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "am000303002.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_K1",
+      "siid": 5,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "am000303002",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 222,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000303003.input"
+      ]
+     },
+     "props": {
+      "id": "Vareaa67e39",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "就餐"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000303003",
+     "type": "varSetNumber",
+     "cfg": {
+      "pos": {
+       "x": 1560,
+       "y": 222,
+       "width": 760,
+       "height": 120
+      },
+      "name": "varSetNumber",
+      "version": 0
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000303004.input"
+      ]
+     },
+     "props": {
+      "id": "Vbria67e399",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "80"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000303004",
+     "type": "varSetNumber",
+     "cfg": {
+      "pos": {
+       "x": 2400,
+       "y": 222,
+       "width": 760,
+       "height": 120
+      },
+      "name": "varSetNumber",
+      "version": 0
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "am000303005.trigger"
+      ]
+     },
+     "props": {
+      "id": "Vccta67e399",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "3000"
+       }
+      ]
+     }
+    },
+    {
+     "id": "am000303005",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3240,
+       "y": 222,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000303006.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW7",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000303006",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 4020,
+       "y": 222,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "am000303007.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW7",
+      "siid": 3,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000303007",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 4800,
+       "y": 222,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW8",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "am000303008",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【餐厅就餐】\n触发：按 过道面板·餐厅就餐\n效果：「餐厅模式」写成 就餐；开 餐厅吊灯、餐厅筒灯、餐厅天花灯带\n设备：过道面板·餐厅就餐、餐厅吊灯、餐厅筒灯、餐厅天花灯带\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 162
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000304",
+   "cfg": {
+    "id": "1700000000304",
+    "userData": {
+     "name": "客厅-灯全关同步",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297808,
+     "version": 0,
+     "tags": [
+      "区域模式",
+      "同步",
+      "客厅"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "ao000304001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 222,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input0"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304002",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 482,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input1"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 3,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304003",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 742,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input2"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304004",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 1002,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input3"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 3,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304005",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 1262,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input4"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW6",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304006",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 1522,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ao000304007.input5"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304007",
+     "type": "signalOr",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 222,
+       "width": 180,
+       "height": 190
+      },
+      "name": "signalOr",
+      "version": 0
+     },
+     "inputs": {
+      "input0": null,
+      "input1": null,
+      "input2": null,
+      "input3": null,
+      "input4": null,
+      "input5": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304008.input"
+      ]
+     },
+     "props": {}
+    },
+    {
+     "id": "ao000304008",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 1000,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304009.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304009",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 1840,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304010.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 3,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304010",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 2680,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304011.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304011",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 3520,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304012.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 3,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304012",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 4360,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304013.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW6",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304013",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 5200,
+       "y": 222,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ao000304014.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": false
+     }
+    },
+    {
+     "id": "ao000304014",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 6040,
+       "y": 222,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [],
+      "output2": [
+       "ao000304015.input"
+      ]
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "睡眠"
+     }
+    },
+    {
+     "id": "ao000304015",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 6660,
+       "y": 222,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [],
+      "output2": [
+       "ao000304016.input"
+      ]
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "离开"
+     }
+    },
+    {
+     "id": "ao000304016",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 7280,
+       "y": 222,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "离开"
+       }
+      ]
+     }
+    },
+    {
+     "id": "ao000304017",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【客厅-灯全关同步】\n触发：区域里任一盏灯被关掉，且这时全部灯都关着\n效果：客厅的灯全关了，「客厅模式」改成 离开（睡眠时不改）\n设备：客厅泛光灯、客厅筒灯、客厅磁吸轨道灯、客厅电视灯带、客厅沙发灯带、客厅落地灯\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 162
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000305",
+   "cfg": {
+    "id": "1700000000305",
+    "userData": {
+     "name": "全屋-全屋睡眠",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297810,
+     "version": 0,
+     "tags": [
+      "家庭状态",
+      "区域模式"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "hc000305001",
+     "type": "varChange",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 182,
+       "width": 470,
+       "height": 160
+      },
+      "name": "varChange",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "hc000305002.input"
+      ]
+     },
+     "props": {
+      "preload": false,
+      "id": "VhomeMode01",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "全屋睡眠"
+     }
+    },
+    {
+     "id": "hc000305002",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 610,
+       "y": 182,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305003.input"
+      ]
+     },
+     "props": {
+      "id": "Vareac82f0a",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "睡眠"
+       }
+      ]
+     }
+    },
+    {
+     "id": "hc000305003",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 1430,
+       "y": 182,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305004.input"
+      ]
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "离开"
+       }
+      ]
+     }
+    },
+    {
+     "id": "hc000305004",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 2250,
+       "y": 182,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305005.trigger"
+      ]
+     },
+     "props": {
+      "id": "Vareaa67e39",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "离开"
+       }
+      ]
+     }
+    },
+    {
+     "id": "hc000305005",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3070,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305006.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305006",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3850,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305007.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW4",
+      "siid": 3,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305007",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 4630,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305008.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305008",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 5410,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305009.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW5",
+      "siid": 3,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305009",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 6190,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305010.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW6",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305010",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 6970,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305011.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305011",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 7750,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305012.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW7",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305012",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 8530,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "hc000305013.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW7",
+      "siid": 3,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305013",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 9310,
+       "y": 182,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW8",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "hc000305014",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【全屋-全屋睡眠】\n触发：家庭模式变成「全屋睡眠」\n效果：主卧→睡眠；客厅→离开；餐厅→离开；再执行 9 个设备动作\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 122
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000306",
+   "cfg": {
+    "id": "1700000000306",
+    "userData": {
+     "name": "主卧-起夜",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070297923,
+     "version": 0,
+     "tags": [
+      "家庭状态",
+      "起夜"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "nw000306001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 262,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "nw000306003.input0"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW2",
+      "siid": 6,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "nw000306002",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 522,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "nw000306003.input1"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW3",
+      "siid": 6,
+      "eiid": 1
+     }
+    },
+    {
+     "id": "nw000306003",
+     "type": "signalOr",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 262,
+       "width": 180,
+       "height": 190
+      },
+      "name": "signalOr",
+      "version": 0
+     },
+     "inputs": {
+      "input0": null,
+      "input1": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306004.input"
+      ]
+     },
+     "props": {}
+    },
+    {
+     "id": "nw000306004",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 1360,
+       "y": 262,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306005.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "id": "Vareac82f0a",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "睡眠"
+     }
+    },
+    {
+     "id": "nw000306005",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 2200,
+       "y": 262,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306006.trigger"
+      ],
+      "output2": [
+       "nw000306008.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": true
+     }
+    },
+    {
+     "id": "nw000306006",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3040,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306007.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "nw000306007",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3820,
+       "y": 262,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 4,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "nw000306008",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3040,
+       "y": 482,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306009.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "nw000306009",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3820,
+       "y": 482,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 4,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "nw000306010",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 782,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:occupancy-sensor:0000A0BF:placeholder-occ:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "nw000306011.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_S1",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "int",
+      "operator": "include",
+      "v1": [
+       0
+      ]
+     }
+    },
+    {
+     "id": "nw000306011",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 502,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306012.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "id": "Vareac82f0a",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "睡眠"
+     }
+    },
+    {
+     "id": "nw000306012",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 1360,
+       "y": 442,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306013.trigger"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": true
+     }
+    },
+    {
+     "id": "nw000306013",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 2200,
+       "y": 482,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "nw000306014.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 2,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "nw000306014",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 3040,
+       "y": 702,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW1",
+      "siid": 4,
+      "piid": 1,
+      "value": false
+     }
+    },
+    {
+     "id": "nw000306015",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【主卧-起夜】\n触发：卧室的区域模式=睡眠 时，按床头任意键（点了睡眠或全屋睡眠以后才生效）\n效果：灯关着→开到「明亮」；灯开着→关灯\n自动关：同区域卫生间传感器报无人→关灯；不做定时自动关\n设备：主卧床头左开关·第2键（无线）、主卧床头右开关·第2键（无线）、主卧吸顶灯、主卧床头吊灯、主卫人在传感器\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 202
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000307",
+   "cfg": {
+    "id": "1700000000307",
+    "userData": {
+     "name": "玄关-回家",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070298017,
+     "version": 0,
+     "tags": [
+      "区域自动化",
+      "回家"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "ah000307001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 202,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:lock:0000A038:placeholder-lock:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "ah000307002.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_LOCK",
+      "siid": 3,
+      "eiid": 1020
+     }
+    },
+    {
+     "id": "ah000307002",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 202,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ah000307003.input"
+      ],
+      "output2": []
+     },
+     "props": {
+      "id": "VhomeMode01",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "离家"
+     }
+    },
+    {
+     "id": "ah000307003",
+     "type": "varSetString",
+     "cfg": {
+      "pos": {
+       "x": 1360,
+       "y": 202,
+       "width": 740,
+       "height": 120
+      },
+      "name": "varSetString",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "ah000307004.trigger"
+      ]
+     },
+     "props": {
+      "id": "VhomeMode01",
+      "scope": "global",
+      "elements": [
+       {
+        "type": "const",
+        "value": "在家"
+       }
+      ]
+     }
+    },
+    {
+     "id": "ah000307004",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 2180,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:placeholder-sw:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW9",
+      "siid": 2,
+      "piid": 1,
+      "value": true
+     }
+    },
+    {
+     "id": "ah000307005",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【玄关-回家】\n触发：开门，且家庭模式=离家\n效果：家庭模式改成「在家」→ 开 玄关筒灯\n设备：入户门锁、玄关筒灯\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 142
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000308",
+   "cfg": {
+    "id": "1700000000308",
+    "userData": {
+     "name": "客厅-灯光跟随",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070298132,
+     "version": 0,
+     "tags": [
+      "区域模式",
+      "灯光跟随",
+      "客厅"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "lv000308001",
+     "type": "deviceInput",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 202,
+       "width": 600,
+       "height": 210
+      },
+      "name": "deviceInput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "lv000308002.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 1,
+      "preload": false,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": true
+     }
+    },
+    {
+     "id": "lv000308002",
+     "type": "varGet",
+     "cfg": {
+      "pos": {
+       "x": 740,
+       "y": 202,
+       "width": 540,
+       "height": 130
+      },
+      "name": "varGet",
+      "version": 1
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [],
+      "output2": [
+       "lv000308003.trigger"
+      ]
+     },
+     "props": {
+      "id": "Vareac3f6b1",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "睡眠"
+     }
+    },
+    {
+     "id": "lv000308003",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 1360,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "lv000308004.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 2,
+      "id": "Vbric3f6b19",
+      "scope": "global",
+      "dtype": "number",
+      "min": 1,
+      "max": 100,
+      "step": 1
+     }
+    },
+    {
+     "id": "lv000308004",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 2140,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:light:0000A001:placeholder-light:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_L1",
+      "siid": 2,
+      "piid": 3,
+      "id": "Vcctc3f6b19",
+      "scope": "global",
+      "dtype": "number",
+      "min": 2700,
+      "max": 6500,
+      "step": 1
+     }
+    },
+    {
+     "id": "lv000308005",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【客厅-灯光跟随】\n触发：智能灯被打开\n效果：新开的调光灯按「客厅亮度」「客厅色温」亮起（睡眠时不改）\n设备：客厅落地灯\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 142
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000309",
+   "cfg": {
+    "id": "1700000000309",
+    "userData": {
+     "name": "开关改无线（一次性）",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070298267,
+     "version": 0,
+     "tags": [
+      "设备调试",
+      "一次性"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "sm000309001",
+     "type": "onLoad",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 202,
+       "width": 180,
+       "height": 110
+      },
+      "name": "onLoad",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "sm000309002.trigger"
+      ]
+     },
+     "props": {}
+    },
+    {
+     "id": "sm000309002",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 320,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:tnv-sw2d01:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "sm000309003.trigger"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW2",
+      "siid": 2,
+      "piid": 6,
+      "value": 1
+     }
+    },
+    {
+     "id": "sm000309003",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 1100,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:switch:0000A003:tnv-sw2d01:1"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SW3",
+      "siid": 2,
+      "piid": 6,
+      "value": 1
+     }
+    },
+    {
+     "id": "sm000309004",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【开关改无线（一次性）】\n触发：规则加载时（启用一次）\n效果：写入 主卧床头左开关·第1键·工作模式、主卧床头右开关·第1键·工作模式。启用一次、读回核对后停用或删掉\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 142
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  },
+  {
+   "id": "1700000000310",
+   "cfg": {
+    "id": "1700000000310",
+    "userData": {
+     "name": "离家-小爱提醒",
+     "transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "rotate": 0
+     },
+     "lastUpdateTime": 1792070298447,
+     "version": 0,
+     "tags": [
+      "家庭状态",
+      "提醒",
+      "可选"
+     ]
+    },
+    "uiType": "test",
+    "enable": false
+   },
+   "nodes": [
+    {
+     "id": "sr000310001",
+     "type": "varChange",
+     "cfg": {
+      "pos": {
+       "x": 60,
+       "y": 202,
+       "width": 470,
+       "height": 160
+      },
+      "name": "varChange",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": [
+       "sr000310002.trigger"
+      ]
+     },
+     "props": {
+      "preload": false,
+      "id": "VhomeMode01",
+      "scope": "global",
+      "varType": "string",
+      "operator": "=",
+      "v1": "离家"
+     }
+    },
+    {
+     "id": "sr000310002",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 610,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:speaker:0000A015:xiaomi-lx06:2"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": [
+       "sr000310003.input"
+      ]
+     },
+     "props": {
+      "did": "PLACEHOLDER_SPK",
+      "siid": 2,
+      "piid": 1,
+      "value": 50
+     }
+    },
+    {
+     "id": "sr000310003",
+     "type": "deviceGet",
+     "cfg": {
+      "pos": {
+       "x": 1390,
+       "y": 202,
+       "width": 760,
+       "height": 170
+      },
+      "name": "deviceGet",
+      "version": 0,
+      "urn": "urn:miot-spec-v2:device:magnet-sensor:0000A016:placeholder-mag:1"
+     },
+     "inputs": {
+      "input": null
+     },
+     "outputs": {
+      "output": [
+       "sr000310004.trigger"
+      ],
+      "output2": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_MAG",
+      "siid": 2,
+      "piid": 1,
+      "dtype": "boolean",
+      "operator": "=",
+      "v1": true
+     }
+    },
+    {
+     "id": "sr000310004",
+     "type": "deviceOutput",
+     "cfg": {
+      "pos": {
+       "x": 2230,
+       "y": 202,
+       "width": 700,
+       "height": 170
+      },
+      "name": "deviceOutput",
+      "version": 1,
+      "urn": "urn:miot-spec-v2:device:speaker:0000A015:xiaomi-lx06:2"
+     },
+     "inputs": {
+      "trigger": null
+     },
+     "outputs": {
+      "output": []
+     },
+     "props": {
+      "did": "PLACEHOLDER_SPK",
+      "siid": 5,
+      "aiid": 1,
+      "ins": [
+       {
+        "piid": 1,
+        "value": "客厅的窗户还开着，记得关一下"
+       }
+      ]
+     }
+    },
+    {
+     "id": "sr000310005",
+     "type": "nop",
+     "cfg": {
+      "contents": [
+       {
+        "insert": "【离家-小爱提醒】\n触发：家庭模式变成「离家」\n效果：客厅的窗户还开着，记得关一下\n设备：客厅小爱、客厅窗户传感器\n生成：2026-10-15 · mijia-home 2.0.9 · zhijipro.cn/skills\n"
+       }
+      ],
+      "background": "#FFE58F",
+      "pos": {
+       "x": 60,
+       "y": 20,
+       "width": 420,
+       "height": 142
+      },
+      "name": "nop",
+      "version": 1
+     },
+     "inputs": {},
+     "outputs": {
+      "output": []
+     },
+     "props": {}
+    }
+   ]
+  }
+ ],
+ "variables": {
+  "global": {
+   "VhomeMode01": {
+    "type": "string",
+    "value": "在家",
+    "userData": {
+     "name": "家庭模式"
+    }
+   },
+   "Vareac3f6b1": {
+    "type": "string",
+    "value": "离开",
+    "userData": {
+     "name": "客厅模式"
+    }
+   },
+   "Vbric3f6b19": {
+    "type": "number",
+    "value": 70,
+    "userData": {
+     "name": "客厅亮度"
+    }
+   },
+   "Vcctc3f6b19": {
+    "type": "number",
+    "value": 3500,
+    "userData": {
+     "name": "客厅色温"
+    }
+   },
+   "Vareaa67e39": {
+    "type": "string",
+    "value": "离开",
+    "userData": {
+     "name": "餐厅模式"
+    }
+   },
+   "Vbria67e399": {
+    "type": "number",
+    "value": 70,
+    "userData": {
+     "name": "餐厅亮度"
+    }
+   },
+   "Vccta67e399": {
+    "type": "number",
+    "value": 3500,
+    "userData": {
+     "name": "餐厅色温"
+    }
+   },
+   "Vareac82f0a": {
+    "type": "string",
+    "value": "离开",
+    "userData": {
+     "name": "主卧模式"
+    }
+   },
+   "Vbric82f0a6": {
+    "type": "number",
+    "value": 70,
+    "userData": {
+     "name": "主卧亮度"
+    }
+   },
+   "Vcctc82f0a6": {
+    "type": "number",
+    "value": 3500,
+    "userData": {
+     "name": "主卧色温"
+    }
+   }
+  }
+ }
+}

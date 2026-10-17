@@ -1,0 +1,72 @@
+{
+  "id": "motion-pause",
+  "name": "临时不让感应关灯（全屋）",
+  "category": "家庭状态",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_motion_pause_rule",
+  "needs": [
+    {
+      "role": "暂停键",
+      "type": "无线键",
+      "count": "1"
+    },
+    {
+      "role": "恢复键（可选）",
+      "type": "无线键",
+      "count": "0-1"
+    }
+  ],
+  "params": {
+    "pause_keys": "暂停键",
+    "resume_keys": "可选恢复键",
+    "resume_when_off": "这些灯全关了自动恢复",
+    "resume_modes": "默认离家、全屋睡眠时自动恢复"
+  },
+  "logic": "按暂停键 → 「感应暂停」= 暂停，人来灯亮规则不关灯；按恢复键、灯全关或离家/全屋睡眠时自动恢复。",
+  "notes": [
+    "全屋一个开关；客户要按区域暂停时由客户自己提",
+    "人来灯亮规则要传 pause=True 才会看这个变量"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "空着的无线键",
+        "cats": [
+          "无线按键",
+          "开关"
+        ],
+        "where": "本房间",
+        "count": 1
+      },
+      {
+        "role": "人在/人体传感器",
+        "cats": [
+          "人在传感器",
+          "人体传感器"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "人在或人体传感器",
+        "一个空着的无线键"
+      ],
+      "optional": []
+    },
+    "trigger": "按暂停键",
+    "effect": "想让灯一直亮时按一下，人走了灯也不灭；关灯、离家或睡觉后自动恢复",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "暂停后离开感应区，等过了关灯时间看灯还亮",
+      "离家后看「感应暂停」变回正常"
+    ]
+  }
+}

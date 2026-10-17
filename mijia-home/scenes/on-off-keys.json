@@ -1,0 +1,69 @@
+{
+  "id": "on-off-keys",
+  "name": "开关分开的两个键",
+  "category": "按键",
+  "areas": [
+    "床头",
+    "门口",
+    "任意区域"
+  ],
+  "builder": "build_on_off_keys_rule",
+  "needs": [
+    {
+      "role": "开键",
+      "type": "无线键",
+      "count": "1+"
+    },
+    {
+      "role": "关键",
+      "type": "无线键",
+      "count": "1+"
+    },
+    {
+      "role": "要控制的设备",
+      "type": "灯/窗帘等",
+      "count": "1+"
+    }
+  ],
+  "params": {
+    "on_keys": "开键",
+    "off_keys": "关键",
+    "on_writes": "开时要写的属性",
+    "off_writes": "关时要写的属性"
+  },
+  "logic": "开键 → 执行开的动作；关键 → 执行关的动作。",
+  "notes": [
+    "适合床头、门口，比按一下切换不容易按错"
+  ],
+  "card": {
+    "scope": "room",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "空着的无线键",
+        "cats": [
+          "无线按键",
+          "开关"
+        ],
+        "where": "本房间",
+        "count": 2
+      }
+    ],
+    "conditions": {
+      "required": [
+        "两个空着的无线键在同一处"
+      ],
+      "optional": [
+        "窗帘、空调等顺带的设备"
+      ]
+    },
+    "trigger": "按开键或关键",
+    "effect": "开键只管开、关键只管关，关的时候可以顺手关窗帘",
+    "effectTunable": null,
+    "effectPlain": null,
+    "autoOff": null,
+    "debug": [
+      "两个键各按一次，看日志里各有一次按键事件"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "scene-with-mode",
+  "name": "场景（发变量 + 批量控制）",
+  "category": "场景",
+  "areas": [
+    "全屋"
+  ],
+  "builder": "build_scene_rule",
+  "needs": [
+    {
+      "role": "场景键",
+      "type": "无线按键/场景面板",
+      "count": "1+"
+    },
+    {
+      "role": "被控设备",
+      "type": "灯/窗帘/空调等",
+      "count": "0+"
+    }
+  ],
+  "params": {
+    "mode": "场景对应的家庭模式（全屋唯一变量）",
+    "writes": "已开着的设备要写的状态"
+  },
+  "logic": "按场景键 → 先写模式变量 → 再批量控制设备。",
+  "notes": [
+    "先写变量再开灯，灯光跟随才能读到新模式"
+  ],
+  "card": {
+    "scope": "home",
+    "roomWords": [],
+    "match": [
+      {
+        "role": "场景键",
+        "cats": [
+          "无线按键",
+          "开关"
+        ],
+        "where": "全屋",
+        "count": 1
+      }
+    ],
+    "conditions": {
+      "required": [
+        "全屋：场景键 1+"
+      ],
+      "optional": [
+        "灯/窗帘/空调等"
+      ]
+    },
+    "trigger": "按场景键",
+    "effect": "先写家庭模式，再批量控制设备",
+    "effectTunable": "按该模式对应的氛围",
+    "effectPlain": "按分层开/关",
+    "autoOff": null,
+    "debug": [
+      "先写变量再开灯，灯光跟随才能读到新模式"
+    ]
+  }
+}
