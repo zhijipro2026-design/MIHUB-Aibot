@@ -2,9 +2,29 @@
 
 让你自己的 AI 助手（不限品牌，能联网、能运行命令即可）读懂你家的米家设备，再帮你在中枢网关极客版里做出家庭模式、场景和按房间的自动化。免费使用。
 
-## 安装补充
+## 安装
 
-各家 AI 的技能目录在哪，见 https://zhijipro.cn/llms.txt 。AI 不支持技能目录时，每次调试前让它先读 `mijia-home/SKILL.md`。1.0.0 版的 6 个旧技能（`mi-home-automation-debug`、`mijia-geek-*`）可以删除，内容已全部并入。
+两条路线装的是同一份技能包，按你的网络选一条。把对应的那句话复制给你的 AI 就行。
+
+### 能顺畅访问 GitHub：直接从这个仓库装
+
+> 从 https://github.com/zhijipro2026-design/MIHUB-Aibot 安装米家技能：下载这个仓库，把里面的 mijia-home 文件夹放进你加载技能的目录，再按 mijia-home/references/mijiaflow-setup.md 装好 MijiaFlow，然后直接开始调试我家的米家设备。
+
+想自己动手的话：
+
+```bash
+git clone https://github.com/zhijipro2026-design/MIHUB-Aibot.git
+```
+
+然后把 `mijia-home` 文件夹复制到你的 AI 加载技能（SKILL.md）的目录，重新打开或刷新技能列表。
+
+### 访问 GitHub 慢或打不开：从官网装
+
+> 去 https://zhijipro.cn/llms.txt ，按里面的步骤安装米家技能 mijia-home，然后直接开始调试我家的米家设备。
+
+官网在国内访问稳定，MijiaFlow 安装包也放在官网 https://zhijipro.cn/skills/mcp/ 。
+
+图文教程：https://zhijipro.cn/guide/ ｜ 问题反馈：https://zhijipro.cn/feedback/ ｜ 隐私说明：https://zhijipro.cn/privacy/
 
 ## 已知问题（2.0.9）
 
@@ -42,11 +62,9 @@
 5. 优先 MijiaFlow 单条写入，没有才整包导入 `.bak`
 6. 编辑器渲染和执行日志验证
 
-## 安装
+## 安装补充
 
-最新版本和下载：https://zhijipro.cn/skills/ 。用你自己的 AI 助手（不限品牌，能联网、能运行命令即可），对它说「去 https://zhijipro.cn/llms.txt ，按里面的步骤安装米家技能 mijia-home」。
-
-手动安装：把 `mijia-home` 整个文件夹放进你的 AI 加载技能（SKILL.md）的目录，然后重新打开或刷新技能列表；常见 AI 的目录见 https://zhijipro.cn/llms.txt 。AI 不支持技能目录时，每次调试前让它先读 `mijia-home/SKILL.md`。1.0.0 版的 6 个旧技能（`mi-home-automation-debug`、`mijia-geek-*`）可以删除，内容已全部并入。
+各家 AI 的技能目录在哪，见 https://zhijipro.cn/llms.txt 。AI 不支持技能目录时，每次调试前让它先读 `mijia-home/SKILL.md`。1.0.0 版的 6 个旧技能（`mi-home-automation-debug`、`mijia-geek-*`）可以删除，内容已全部并入。
 
 ## 安全要点
 
